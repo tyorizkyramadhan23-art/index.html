@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Anniversary ❤️</title>
+
+<style>
+
+body{
+margin:0;
+font-family:'Segoe UI',sans-serif;
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+color:white;
+text-align:center;
+overflow-x:hidden;
+}
+
+.container{
+padding:30px;
+max-width:800px;
+margin:auto;
+}
+
+h1{
+font-size:40px;
+margin-bottom:10px;
+}
+
+h2{
+margin-top:0;
+}
+
+.slider{
+position:relative;
+max-width:350px;
+margin:auto;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
+.slide{
+display:none;
+}
+
+.slide img{
+width:100%;
+border-radius:20px;
+}
+
+.message{
+margin-top:25px;
+font-size:18px;
+line-height:1.6;
+}
+
+button{
+margin-top:25px;
+padding:12px 25px;
+border:none;
+border-radius:25px;
+font-size:18px;
+background:white;
+color:#ff4f81;
+cursor:pointer;
+transition:0.3s;
+}
+
+button:hover{
+transform:scale(1.1);
+}
+
+#surprise{
+margin-top:20px;
+font-size:20px;
+display:none;
+}
+
+.heart{
+position:fixed;
+top:-10px;
+color:red;
+animation:fall 5s linear infinite;
+}
+
+@keyframes fall{
+0%{
+transform:translateY(-10vh);
+opacity:1;
+}
+100%{
+transform:translateY(110vh);
+opacity:0;
+}
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Happy Anniversary ❤️</h1>
+<h2>Untuk Kamu Yang Aku Cintai</h2>
+
+<p id="days"></p>
+
+<div class="slider">
+
+<div class="slide">
+<img src="FT1.jpg">
+</div>
+
+<div class="slide">
+<img src="FT2.jpg">
+</div>
+
+<div class="slide">
+<img src="FT3.jpg">
+</div>
+
+</div>
+
+<div class="message">
+Tencuuuu Bebeee u sudah dateng ke hidup i ❤️  
+Setiap hari cama u adalah hadiah terindah i hehehe...  
+I berharap perjalanan kita masih sangat panjang yaa BEBEEE.
+</div>
+
+<button onclick="showLove()">Klik Pesan Rahasia 💌</button>
+
+<div id="surprise">
+I mencintai U hari ini, besok, dan selamanya ❤️
+</div>
+
+</div>
+
+<audio autoplay loop>
+<source src="MUSIK.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+let startDate = new Date("2024-09-09");
+let today = new Date();
+let diff = today - startDate;
+
+let days = Math.floor(diff/(1000*60*60*24));
+
+document.getElementById("days").innerHTML =
+"Kita sudah bersama selama <b>"+days+" hari</b> ❤️";
+
+function showLove(){
+document.getElementById("surprise").style.display="block";
+}
+
+let slideIndex = 0;
+showSlides();
+
+function showSlides(){
+
+let slides = document.getElementsByClassName("slide");
+
+for(let i=0;i<slides.length;i++){
+slides[i].style.display="none";
+}
+
+slideIndex++;
+
+if(slideIndex>slides.length){
+slideIndex=1;
+}
+
+slides[slideIndex-1].style.display="block";
+
+setTimeout(showSlides,3000);
+
+}
+
+function createHeart(){
+
+const heart=document.createElement("div");
+
+heart.classList.add("heart");
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=(Math.random()*20+10)+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},5000);
+
+}
+
+setInterval(createHeart,300);
+
+</script>
+
+</body>
+</html>
